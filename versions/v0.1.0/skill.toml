@@ -1,0 +1,12 @@
+slug = "institutional"
+name = "schematize-institutional"
+tag = "Site institucional · IA/páginas/JSON-LD/sitemap"
+status = "beta"
+order = 20
+current_version = "0.1.0"
+href = "/institutional"
+
+[descriptions]
+pt = "Construção de sites institucionais da casa: a ESTRUTURA/arquitetura de informação (inventário de páginas — Home, Sobre, Serviços índice+detalhe, Legal índice + 7 subpáginas legais, Contato, FAQ, Blog, Carreiras…), os templates/checklists de conteúdo de cada página, as páginas legais como SCAFFOLD (estrutura + pontos LGPD obrigatórios — NÃO é aconselhamento jurídico), os dados estruturados (JSON-LD: Organization+WebSite, BreadcrumbList, LocalBusiness, Service/Product, FAQPage, Article) e o sitemap.xml+robots.txt+hreflang mínimos pra o site nascer indexável. A ENGENHARIA de frontend delega à schematize-web; o SEO fino/multi-domínio à schematize-seo."
+en = "Building house institutional websites: the STRUCTURE/information architecture (page inventory — Home, About, Services index+detail, Legal index + 7 legal subpages, Contact, FAQ, Blog, Careers…), per-page content templates/checklists, the legal pages as SCAFFOLD (structure + mandatory LGPD points — NOT legal advice), structured data (JSON-LD: Organization+WebSite, BreadcrumbList, LocalBusiness, Service/Product, FAQPage, Article) and the minimal sitemap.xml+robots.txt+hreflang so the site is born indexable. Frontend ENGINEERING delegates to schematize-web; fine/multi-domain SEO to schematize-seo."
+es = "Construcción de sitios institucionales de la casa: la ESTRUCTURA/arquitectura de información (inventario de páginas — Home, Sobre, Servicios índice+detalle, Legal índice + 7 subpáginas legales, Contacto, FAQ, Blog, Carreras…), plantillas/checklists de contenido por página, las páginas legales como SCAFFOLD (estructura + puntos LGPD obligatorios — NO es asesoría jurídica), datos estructurados (JSON-LD: Organization+WebSite, BreadcrumbList, LocalBusiness, Service/Product, FAQPage, Article) y el sitemap.xml+robots.txt+hreflang mínimos para que el sitio nazca indexable. La INGENIERÍA de frontend delega a schematize-web; el SEO fino/multidominio a schematize-seo."
