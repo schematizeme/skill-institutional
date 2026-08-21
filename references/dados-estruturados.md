@@ -7,6 +7,20 @@
 > **schematize-web**. Aqui é o **kit institucional aplicado**: quais tipos vão em quais páginas do
 > site institucional e os blocos prontos pra adaptar.
 
+> **O que é daqui e o que NÃO é** (medido em 2026-08-21, para a fronteira não depender de memória):
+> comparando linha a linha com a `schematize-seo`, **1 de 93** linhas substantivas é idêntica (1%);
+> bloco a bloco, 16 de 72 (22%) — não os ~60% que a vistoria estimou. O que sobrepõe é **tema**, não
+> texto. Ainda assim, a fronteira vale escrita, porque é ela que impede a próxima divergência:
+>
+> | Assunto | Dono |
+> |---|---|
+> | O catálogo geral de tipos, validação, penalização, entidade cross-domain, âncora do `Organization` | **`schematize-seo`** → `references/dados-estruturados.md` |
+> | Como injetar o `<script type="application/ld+json">` (rota, `metadata`, geração) | **`schematize-web`** |
+> | **Quais tipos vão em quais páginas do site institucional**, e os **blocos prontos** para adaptar | **este arquivo** |
+>
+> Se um número (âncora, idioma, política de rich result) aparecer nos dois, **o da `schematize-seo`
+> manda** — aqui é aplicação, não definição.
+
 Convenção: **MUST** = regra; **VETADO** = piso. Substitua `EMPRESA`, `https://exemplo.com.br`,
 `[...]` pelos dados reais. **Todo campo do markup precisa existir VISÍVEL na página.**
 

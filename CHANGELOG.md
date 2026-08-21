@@ -4,6 +4,15 @@ Todas as mudanças relevantes deste pacote, no formato [Keep a Changelog](https:
 com versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
 
+## [0.3.0] — 2026-08-21
+
+### Corrigido
+- **hreflang ganhou a qualificação que faltava:** as páginas apontadas têm de ser **a MESMA página traduzida**. Ficou escrito onde isso quebrava aqui — *os quatro domínios da casa **não são traduções um do outro***, então aplicar hreflang entre eles declara como tradução o que é conteúdo diferente, e o buscador escolhe um, jogando fora a distinção que os domínios existem para manter. Regra final: dentro da propriedade sempre; entre domínios **só** com tradução 1:1 real; na dúvida, **não declare** — *hreflang ausente custa menos que hreflang mentiroso*.
+- **Consentimento deixou de ser delegação sem destino:** a spec do banner agora existe na `schematize-web` (§49.4), e este reference aponta para ela pelo nome e pela seção.
+
+### Mudado (premissa corrigida)
+- O `dados-estruturados.md` **não é ~60% cópia literal** da `schematize-seo`: medido em 2026-08-21, **1 de 93** linhas substantivas é idêntica (1%) e 16 de 72 blocos (22%). O que sobrepõe é **tema**. Em vez de reduzir o arquivo a um ponteiro (jogando fora os blocos JSON-LD prontos, que são o valor dele), entrou a **fronteira em tabela** — catálogo/validação/entidade é da `seo`, injeção é da `web`, **quais tipos em quais páginas** é daqui — com a regra de desempate: *se um número aparecer nos dois, o da `schematize-seo` manda*.
+
 ## [0.2.0] — 2026-08-21
 Os pontos abertos pela vistoria de 2026-08-21: **sem página de erro no baseline**, **sem gate de go-live**, **zero scripts**.
 

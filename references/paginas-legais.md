@@ -3,7 +3,10 @@
 > **Fronteira com as irmãs:** aqui é a **estrutura jurídica** das páginas legais (seções,
 > placeholders, pontos LGPD). A **redação otimizada** e a estratégia de indexação delas são da
 > `schematize-seo`; o **layout, a a11y e o consentimento de cookies em runtime** são da
-> `schematize-web`. Medido em 2026-08-21: **0%** de linha substantiva idêntica à `schematize-seo` —
+> `schematize-web` — e a **spec do banner** está lá, em `references/observabilidade.md` §49.4 (nada
+> não essencial antes da escolha · aceitar e recusar com o mesmo peso · categorias · registro
+> auditável · revogação que apaga · sem dark pattern · e as categorias **iguais** às da política
+> daqui). Medido em 2026-08-21: **0%** de linha substantiva idêntica à `schematize-seo` —
 > a sobreposição entre as duas é temática, e é por isso que esta fronteira fica escrita.
 >
 > Parte da skill **schematize-institutional**. Este reference provê a **ESTRUTURA** das páginas

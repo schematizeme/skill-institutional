@@ -134,6 +134,24 @@ casa (piso `schematize-seo`).
 Quando o site tem mais de um idioma, cada página declara **todas** as suas versões de idioma
 (incluindo a si mesma) e um `x-default`. Os apontamentos são **recíprocos** (A→B exige B→A).
 
+> **A qualificação que decide se o hreflang está certo: as páginas apontadas têm de ser A MESMA
+> PÁGINA traduzida.** Não "o site em outro idioma", não "a home do outro domínio", não "a página
+> equivalente mais ou menos". `hreflang` diz ao buscador *"este é o mesmo conteúdo para outro
+> público"* — e é por isso que ele **consolida** sinal em vez de dividir.
+>
+> **Onde isso quebra na casa:** os quatro domínios (`.net`/`.org`/`.me`/`.com.br`) **não são
+> traduções um do outro** — cada um tem **proposta e conteúdo distintos** (é o que a
+> `schematize-seo` → `references/internacional-multidominio.md` estabelece, junto com o **veto ao
+> canonical cruzado**). Aplicar hreflang entre eles **produz o hreflang errado**: você declara como
+> tradução o que é conteúdo diferente, e o buscador escolhe **um** para mostrar — jogando fora
+> justamente a distinção que os quatro domínios existem para manter.
+>
+> **Portanto:** hreflang **dentro** de uma propriedade (pt-BR ↔ en da *mesma* página) — sim, sempre
+> recíproco e com `x-default`. Hreflang **entre** os domínios da casa — **só** quando existir
+> tradução **1:1 real** daquela página específica (o `.com.br` traduzindo aquela página do `.me`, por
+> exemplo), nunca por default. Na dúvida, **não declare**: hreflang ausente custa menos que hreflang
+> mentiroso.
+
 No `<head>` de cada página (ex.: a versão pt de `/sobre`):
 
 ```html

@@ -1,7 +1,7 @@
 ---
 name: schematize-institutional
 metadata:
-  version: 0.2.0
+  version: 0.3.0
 description: Site institucional da casa — o inventário de páginas que um site de empresa precisa ter, o conteúdo mínimo de cada uma, e o piso legal/LGPD. Cobre a arquitetura de páginas (home, sobre, produtos/serviços, casos, preços, blog, contato, carreiras, imprensa, status), o que cada página tem de provar (proposta clara, prova social honesta, CTA único, dados de contato reais), as páginas LEGAIS obrigatórias (termos de uso e de serviço, política de privacidade LGPD, cookies, devolução/frete/estorno quando há venda), o encarregado/DPO e os direitos do titular, e o piso de acessibilidade e SEO de cada template. Use SEMPRE que for planejar, criar, revisar ou auditar um site institucional, uma landing de empresa, uma página legal ou o inventário de páginas de um domínio — mesmo sem citar "institucional". AVISO: o conteúdo legal aqui é SCAFFOLD, não texto jurídico válido — o item de revisão por advogado é humano e não se marca sozinho. Engenharia de front: schematize-web; rankeamento: schematize-seo.
 ---
 
@@ -26,7 +26,7 @@ faz a estratégia de SEO — ela **delega**:
 Esta skill entrega o **mapa do prédio e a lista do que vai em cada sala**; a **web** constrói as
 salas; a **seo** faz o prédio aparecer no mapa da cidade.
 
-**Versão:** skill `schematize-institutional` v0.2.0. Changelog em `CHANGELOG.md`.
+**Versão:** skill `schematize-institutional` v0.3.0. Changelog em `CHANGELOG.md`.
 
 ## Comandos (Claude Code)
 
