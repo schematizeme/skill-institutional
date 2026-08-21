@@ -1,5 +1,11 @@
 # Páginas Legais — SCAFFOLD / Estrutura (NÃO é aconselhamento jurídico)
 
+> **Fronteira com as irmãs:** aqui é a **estrutura jurídica** das páginas legais (seções,
+> placeholders, pontos LGPD). A **redação otimizada** e a estratégia de indexação delas são da
+> `schematize-seo`; o **layout, a a11y e o consentimento de cookies em runtime** são da
+> `schematize-web`. Medido em 2026-08-21: **0%** de linha substantiva idêntica à `schematize-seo` —
+> a sobreposição entre as duas é temática, e é por isso que esta fronteira fica escrita.
+>
 > Parte da skill **schematize-institutional**. Este reference provê a **ESTRUTURA** das páginas
 > legais de um site institucional: as seções, os placeholders e os **pontos obrigatórios** que cada
 > política precisa cobrir. **NÃO é aconselhamento jurídico.**
@@ -174,6 +180,12 @@ dias em compra fora do estabelecimento). `[REVISAR: advogado]`
 
 ## Checklist (páginas legais)
 
+> **Convenção de checklist da casa (3 classes).** `- [ ]` é item de **máquina** (o modelo fecha, com
+> prova); **`- [H ]` é de humano** — decisão jurídica, dado real do negócio, aprovação — e o modelo
+> **não o marca**; `- [~]` é **on-hold** (parkeado por dúvida, com o motivo escrito). Misturar as
+> três numa lista só de `- [ ]` é o que faz um checklist "fechado" esconder exatamente o que ninguém
+> verificou.
+
 - [ ] Aviso interno registrado: **é scaffold, não aconselhamento jurídico**; pontos jurídicos
       marcados `[REVISAR: advogado]`.
 - [ ] Índice legal (`/legal`) lista todas as políticas aplicáveis; linkado no rodapé de todo o site.
@@ -182,6 +194,6 @@ dias em compra fora do estabelecimento). `[REVISAR: advogado]`
 - [ ] **Privacidade** cobre os pontos LGPD 1–13 (mínimo: controlador, encarregado, dados,
       finalidade, base legal, retenção, direitos + como exercer).
 - [ ] **Cookies** define categorias + consentimento opt-in dos não-essenciais; banner delegado à `web`.
-- [ ] Cada política tem razão social/CNPJ, data de vigência e contato.
+- [H ] Cada política tem razão social/CNPJ, data de vigência e contato — os **dados reais** vêm do dono do site (`[REVISAR: negócio]`), não do gerador.
 - [ ] `BreadcrumbList` no JSON-LD de cada uma; **nenhum** rich result inventado.
-- [ ] Encaminhado para **revisão por advogado(a)** antes de publicar.
+- [H ] Encaminhado para **revisão por advogado(a)** antes de publicar. *(Item de **humano**: nenhum modelo fecha este — e um checklist que deixa uma pessoa marcá-lo por conta própria está mentindo sobre o que foi verificado.)*

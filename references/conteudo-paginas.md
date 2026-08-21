@@ -185,3 +185,41 @@ de acessibilidade do site, canal para relatar barreiras, data da última avalia�
 for fornecido pelo dono do site sai como **placeholder** `[REVISAR: negócio: <o quê>]`, nunca como
 fato. Conteúdo institucional falso queima confiança e, em prova social/avaliação, vira violação de
 dados estruturados (ver `dados-estruturados.md`).
+
+## Páginas de erro (404 e 500)
+
+> Baseline, não enfeite: **toda** navegação errada termina numa delas. Faltavam no baseline até
+> 2026-08-21.
+
+### 404 — não encontrado
+
+O que **importa** não é o desenho; é o par **status + saída**:
+
+1. **Status HTTP 404 de verdade.** Página de erro que responde `200` é **soft-404**: a tela diz
+   "não encontrado" e o crawler indexa aquilo como conteúdo válido. É o defeito que passa na revisão
+   visual justamente porque *parece* certo na tela.
+2. **Explicação curta e humana** — "esta página não existe mais ou o endereço mudou". Sem código de
+   erro cru, sem culpar o visitante.
+3. **Saída, sempre:** link para a home **e** para os hubs principais (Serviços, Contato); busca, se
+   o site tiver. Erro sem caminho de volta é beco sem saída.
+4. **`noindex`** na página de erro, e ela **não entra no sitemap**.
+5. **Mesmo cabeçalho e rodapé** do site: a pessoa continua dentro do site, não caiu num vazio.
+6. **Registre o 404** (referrer + URL pedida) — 404 recorrente vindo de link interno é bug de
+   conteúdo, não fatalidade do visitante.
+
+### 500 — falha do servidor
+
+1. **Status 500** (ou 503 em manutenção, com `Retry-After`).
+2. **Honesta e sem detalhe técnico:** "algo falhou do nosso lado, já fomos avisados". **Nunca** stack
+   trace, caminho de arquivo, versão de framework ou query — é vazamento de superfície de ataque.
+3. **Canal de contato** e, se houver, o identificador do incidente para a pessoa citar.
+4. **`noindex`**, fora do sitemap, e **alerta do lado de dentro** — 500 que ninguém vê é incidente
+   silencioso (`schematize-infra` → `references/observabilidade.md`).
+
+**Checklist**
+
+- [ ] 404 responde **404**; 500 responde **500**.
+- [ ] As duas têm **pelo menos um link** de volta e o cabeçalho/rodapé do site.
+- [ ] Nenhuma das duas expõe stack trace, versão ou caminho de arquivo.
+- [ ] As duas são `noindex` e **não** estão no sitemap.
+- [ ] O gate `/institutional-golive` confere o par status+saída — e foi visto reprovando o soft-404.

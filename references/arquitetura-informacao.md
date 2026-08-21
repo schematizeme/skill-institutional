@@ -33,6 +33,10 @@ Convenção: **MUST** = regra (desvio bloqueia ou exige ADR); **SHOULD** = padr�
 **VETADO** (piso da skill)
 - Site institucional sem o **baseline** abaixo. Sem página de privacidade, sem índice legal, sem
   sitemap → não é site institucional pronto, é rascunho.
+- **Página de erro que responde 200** (soft-404). A tela diz "não encontrado" e o crawler indexa
+  como conteúdo válido — é o defeito que passa na revisão visual porque *parece* certo na tela.
+- **Página de erro sem nenhum link.** Quem errou o caminho fica num beco sem saída.
+- Ir ao ar sem passar pelo **gate de go-live** (`/institutional-golive`).
 - Emoji na estrutura de navegação/cards/títulos — use **ícones** (regra da casa; refino na `web`).
 
 ---
@@ -58,6 +62,8 @@ JSON-LD do seu tipo (ver `dados-estruturados.md`).
 | **Política de estorno/reembolso** | `/legal/estorno` | reembolso (se vende pago) | `BreadcrumbList` | ver `paginas-legais.md` |
 | **Contato** | `/contato` | como falar com a empresa | `ContactPage` + `ContactPoint` | formulário, canais, endereço, mapa |
 | **Mapa do site (HTML)** | `/mapa-do-site` | lista humana de todas as páginas | `BreadcrumbList` | links hierárquicos pra tudo |
+| **Página 404** | qualquer URL inexistente | erro com caminho de volta — e com **status 404 de verdade** | — | ver `conteudo-paginas.md` |
+| **Página 500** | falha do servidor | erro honesto, sem stack trace, com canal de contato | — | ver `conteudo-paginas.md` |
 | **sitemap.xml + robots.txt** | `/sitemap.xml`, `/robots.txt` | rastreabilidade (máquina) | — | ver `sitemap-robots.md` |
 
 > **Nota sobre as políticas de e-commerce (devolução, frete, estorno):** são **baseline SE houver

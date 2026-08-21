@@ -7,8 +7,23 @@ Gere a **estrutura completa de um site institucional** para ${ARGUMENTS:-<empres
 fixe o inventário **antes** de escrever página. Leia primeiro `references/arquitetura-informacao.md`,
 `references/paginas-legais.md`, `references/dados-estruturados.md` e `references/sitemap-robots.md`.
 
-## Passo 0 — Colher o input mínimo
-Confirme com o usuário (pergunte só o que faltar; não invente):
+## Passo 0 — Colher o input mínimo (sem travar)
+
+**Não pare para perguntar.** A regra do overdev (`schematize-engineering` -> `references/overdev.md`)
+vale aqui: pergunta que bloqueia vira **item parkeado**, e o trabalho segue. Na prática:
+
+1. **Use o que já dá para descobrir** — repo, README, domínio, conteúdo existente, `.env.example`.
+2. **Para o que faltar, assuma o default seguro e MARQUE**: gere o artefato com
+   `[REVISAR: negócio]` no ponto exato, e registre o item como `- [H ]` no checklist de saída (é
+   humano: só o dono do site sabe o CNPJ, se vende no site, se tem endereço).
+3. **Só então**, ao fim do passo, liste de uma vez o que precisa de confirmação — em bloco, não uma
+   pergunta por vez.
+
+Um scaffold que trava na primeira pergunta entrega **nada**; um que assume o default seguro e marca
+o ponto entrega um site inteiro com cinco lugares para revisar. O erro a evitar não é assumir — é
+assumir **em silêncio**.
+
+Os pontos de input (colha do que existir; o que faltar vira `[REVISAR: negócio]`):
 - **Nome da empresa** (= `${ARGUMENTS}`), **razão social/CNPJ** e **domínio** (pra URLs absolutas).
 - **Serviços/produtos** (lista) — cada um vira uma página de detalhe.
 - **Idiomas** (ex.: só pt-BR, ou pt-BR + en) — decide hreflang/i18n.

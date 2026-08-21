@@ -1,6 +1,12 @@
 # Sitemap.xml + robots.txt + hreflang — o Essencial pra Nascer Indexável
 
-> Parte da skill **schematize-institutional**. Diz **como gerar** o `sitemap.xml`, o `robots.txt` e
+> **PISO: o sitemap é AUTOGERADO, nunca escrito à mão.** É MUST na `schematize-seo`
+> (`references/tecnico.md`) e na `schematize-web` (`references/seo-i18n.md` §46.3), e vale aqui
+> igual: sitemap à mão **envelhece na primeira página nova** e passa a mentir para o crawler —
+> pior que não ter. Esta skill define **o que entra** (o inventário de páginas); a **geração** é do
+> frontend (rota `/sitemap.xml` no App Router / integração do Astro).
+>
+> Parte da skill **schematize-institutional**. Diz **o que entra** no `sitemap.xml`, no `robots.txt` e
 > os `hreflang` **a partir do inventário de páginas** (`arquitetura-informacao.md`), com canonical
 > **self** por página — o **mínimo** pra o site institucional **nascer rastreável e indexável**. O
 > **SEO técnico fino** (sitemaps em escala, index bloat, log analysis, estratégia multi-domínio,

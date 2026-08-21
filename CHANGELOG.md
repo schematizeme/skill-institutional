@@ -1,6 +1,19 @@
 # Changelog — schematize-institutional
 
-Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/). Versionamento semântico.
+Todas as mudanças relevantes deste pacote, no formato [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/),
+com versionamento [SemVer](https://semver.org/lang/pt-BR/).
+
+
+## [0.2.0] — 2026-08-21
+Os pontos abertos pela vistoria de 2026-08-21: **sem página de erro no baseline**, **sem gate de go-live**, **zero scripts**.
+
+### Adicionado
+- **Páginas 404 e 500 no baseline** (`arquitetura-informacao.md` + `conteudo-paginas.md`) — com o que realmente importa, que não é o desenho: **status HTTP correto** e **saída**. Página de erro que responde `200` é **soft-404** — a tela diz "não encontrado" e o crawler indexa como conteúdo válido; é o defeito que passa na revisão visual justamente porque *parece* certo na tela. A 500 nunca mostra stack trace, caminho de arquivo ou versão (vazamento de superfície de ataque) e **alerta do lado de dentro**: 500 que ninguém vê é incidente silencioso. As duas são `noindex` e ficam fora do sitemap. Entraram como **VETADO** os dois casos: página de erro com 200, e página de erro sem nenhum link.
+- **`scripts/go-live.mjs`** + **`/institutional-golive`** — o gate que faltava, respondendo **por HTTP**. Ele pega exatamente o que a revisão visual não pega: `Disallow: /` do staging que viajou, `noindex` esquecido, soft-404, sitemap vazio ou apontando para outro host, página do baseline fora do sitemap, `<title>` duplicado (canibalização dentro do próprio site) e **canonical cruzado entre domínios da casa** — VETADO pela `schematize-seo`. `0` sobe · `1` reprova · `2` uso errado **ou site inalcançável**, que não é aprovação.
+- **`scripts/go-live.test.sh`** — **17 casos** contra um site falso servido **de verdade por HTTP** (não mock), 15 quebrados de propósito.
+
+### Corrigido (premissa da vistoria)
+- A vistoria estimou *"~412 das 952 linhas de reference são cópia da seo"*. Medido em 2026-08-21 por dois métodos: **linha substantiva idêntica** (normalizada, >40 caracteres) dá **1 de 461 (0%)**; similaridade **bloco a bloco** contra `schematize-seo` dá **13–29% por arquivo** (~23% no total, ~230 linhas). A sobreposição é **temática, não cópia** — e a fronteira já está declarada no topo de 4 dos 5 references. O risco real não é o volume: é a divergência futura, e é por isso que a fronteira fica escrita, não presumida.
 
 ## [0.1.0] — 2026-08-18
 

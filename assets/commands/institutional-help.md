@@ -9,6 +9,7 @@ Mostre ao usuário a lista de comandos do conjunto **schematize-institutional**,
 |---|---|
 | `/institutional-help` | Lista todos os comandos do schematize-institutional (este). |
 | `/institutional-scaffold` | A partir de um **input mínimo** (nome da empresa, serviços/produtos, idiomas, é e-commerce?, tem endereço?) gera a **estrutura do site institucional**: inventário de páginas (baseline + opcionais), templates de conteúdo por página, as páginas legais como SCAFFOLD (com pontos LGPD, `[REVISAR: advogado]`), os blocos **JSON-LD** por tipo e o **sitemap.xml + robots.txt** (+ hreflang se multi-idioma) — e grava no archive. |
+| `/institutional-golive` | **O gate de go-live**, por HTTP: baseline em 200, **404 de verdade** (pega o soft-404), robots sem `Disallow: /` do staging, sitemap coerente (nada de URL morta, de outro host ou página do baseline de fora) e canonical **self**, nunca cruzado. `0` sobe · `1` reprova · `2` site inalcançável — que não é aprovação. |
 | `/institutional-load` | Carrega à força TODO o corpo normativo (IA/inventário, conteúdo, legais, dados estruturados, sitemap) e passa a aplicá-lo. |
 | `/institutional-claude` | Cria ou mescla o `CLAUDE.md` sempre-on do institucional na raiz do repo. |
 | `/institutional-cc` | Context compact: gera handoff no archive e roda `/compact`. |

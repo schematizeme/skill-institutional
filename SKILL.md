@@ -1,7 +1,7 @@
 ---
 name: schematize-institutional
 metadata:
-  version: 0.1.0
+  version: 0.2.0
 description: Site institucional da casa — o inventário de páginas que um site de empresa precisa ter, o conteúdo mínimo de cada uma, e o piso legal/LGPD. Cobre a arquitetura de páginas (home, sobre, produtos/serviços, casos, preços, blog, contato, carreiras, imprensa, status), o que cada página tem de provar (proposta clara, prova social honesta, CTA único, dados de contato reais), as páginas LEGAIS obrigatórias (termos de uso e de serviço, política de privacidade LGPD, cookies, devolução/frete/estorno quando há venda), o encarregado/DPO e os direitos do titular, e o piso de acessibilidade e SEO de cada template. Use SEMPRE que for planejar, criar, revisar ou auditar um site institucional, uma landing de empresa, uma página legal ou o inventário de páginas de um domínio — mesmo sem citar "institucional". AVISO: o conteúdo legal aqui é SCAFFOLD, não texto jurídico válido — o item de revisão por advogado é humano e não se marca sozinho. Engenharia de front: schematize-web; rankeamento: schematize-seo.
 ---
 
@@ -26,7 +26,7 @@ faz a estratégia de SEO — ela **delega**:
 Esta skill entrega o **mapa do prédio e a lista do que vai em cada sala**; a **web** constrói as
 salas; a **seo** faz o prédio aparecer no mapa da cidade.
 
-**Versão:** skill `schematize-institutional` v0.1.0. Changelog em `CHANGELOG.md`.
+**Versão:** skill `schematize-institutional` v0.2.0. Changelog em `CHANGELOG.md`.
 
 ## Comandos (Claude Code)
 
@@ -36,6 +36,7 @@ Digite `/institutional-help` pra ver todos. Em resumo:
 |---|---|
 | `/institutional-help` | lista todos os comandos do schematize-institutional |
 | `/institutional-scaffold` | a partir de um **input mínimo** (nome da empresa, serviços/produtos, idiomas, tem endereço físico? é e-commerce?) gera o **inventário de páginas** (baseline + opcionais), os **templates de conteúdo** por página, os blocos **JSON-LD** por tipo e o **sitemap.xml + robots.txt** (+ hreflang se multi-idioma) — e grava no archive |
+| `/institutional-golive` | **o gate de go-live**: prova por HTTP que o baseline está no ar, que o 404 é 404 de verdade e que robots/sitemap/canonical não trouxeram o staging junto |
 | `/institutional-load` | carrega à força TODO o corpo normativo (IA/inventário, conteúdo, legais, dados estruturados, sitemap) e passa a aplicá-lo |
 | `/institutional-claude` | cria ou mescla o `CLAUDE.md` sempre-on do institucional na raiz do repo |
 | `/institutional-cc` | context compact: gera handoff no archive e roda `/compact` |
