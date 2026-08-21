@@ -4,7 +4,7 @@
 > legais de um site institucional: as seções, os placeholders e os **pontos obrigatórios** que cada
 > política precisa cobrir. **NÃO é aconselhamento jurídico.**
 
-## ⚠️ Aviso obrigatório (piso da skill)
+## Aviso obrigatório (piso da skill)
 
 **Esta skill entrega SCAFFOLD, não texto jurídico válido.** O conteúdo aqui é um **esqueleto** com
 placeholders e uma lista de pontos que costumam ser obrigatórios — **não** substitui a análise de
@@ -162,13 +162,13 @@ dias em compra fora do estabelecimento). `[REVISAR: advogado]`
 
 | Página legal | Sempre | Só se e-commerce / venda |
 |---|---|---|
-| Termos de uso | ✅ | |
-| Termos de serviço | ✅ | |
-| Política de privacidade (LGPD) | ✅ | |
-| Política de cookies | ✅ (se usa cookies — quase todo site) | |
-| Política de devolução | | ✅ se vende |
-| Política de frete | | ✅ se envia físico |
-| Política de estorno/reembolso | | ✅ se venda paga |
+| Termos de uso | **sim** | |
+| Termos de serviço | **sim** | |
+| Política de privacidade (LGPD) | **sim** | |
+| Política de cookies | **sim** (se usa cookies — quase todo site) | |
+| Política de devolução | | **sim**, se vende |
+| Política de frete | | **sim**, se envia físico |
+| Política de estorno/reembolso | | **sim**, se venda paga |
 
 ---
 
