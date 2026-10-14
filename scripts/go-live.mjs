@@ -131,6 +131,12 @@ for (const [p, r] of respostas) {
   if (h1s === 0) reprova(`${p}: sem <h1>`)
   else if (h1s > 1) avisos.push(`${p}: ${h1s} <h1> na mesma pagina`)
   if (!desc) avisos.push(`${p}: sem meta description`)
+  // Rich results mortos (schematize-seo -> references/dados-estruturados.md): a marcacao sai, o conteudo fica.
+  for (const m of html.matchAll(/<script[^>]+application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)) {
+    const t = m[1]
+    const morto = /"@type"\s*:\s*"(FAQPage|HowTo)"/.test(t) ? t.match(/"(FAQPage|HowTo)"/)[1] : (/"@type"\s*:\s*"SearchAction"/.test(t) ? 'SearchAction' : null)
+    if (morto) reprova(`${p}: JSON-LD ${morto} — rich result morto; mantenha o conteudo visivel e remova a marcacao (schematize-seo)`)
+  }
   // O `noindex` do staging em producao tira a pagina do indice em silencio.
   if (/noindex/i.test(robotsMeta)) reprova(`${p}: meta robots com NOINDEX — pagina do baseline nao pode nascer fora do indice`)
   if (!canonical) reprova(`${p}: sem <link rel="canonical">`)

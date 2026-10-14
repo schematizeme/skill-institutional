@@ -44,8 +44,8 @@ unzip skill-institutional.zip -d .claude/skills/
   opcional: Home, Sobre, Serviços índice+detalhe, Legal índice + 7 subpáginas legais, Contato, Mapa
   do site…), `conteudo-paginas` (templates/checklists por página, anti-invenção), `paginas-legais`
   (as 7 legais como SCAFFOLD + pontos LGPD + "NÃO é aconselhamento jurídico"), `dados-estruturados`
-  (JSON-LD por tipo: Organization+WebSite/SearchAction, BreadcrumbList, ItemList, Service/Product,
-  LocalBusiness, ContactPoint, FAQPage, Article, JobPosting, `@graph`), `sitemap-robots`
+  (JSON-LD por tipo: Organization+WebSite, BreadcrumbList, ItemList, Service/Product,
+  LocalBusiness, ContactPoint, Article, JobPosting, `@graph`), `sitemap-robots`
   (sitemap.xml + robots.txt + hreflang derivados do inventário, canonical self, `noindex`).
 - **assets/commands/** — `/institutional-help`, `/institutional-scaffold` (gera inventário + JSON-LD
   + sitemap a partir de input mínimo), `/institutional-load`, `/institutional-claude`,

@@ -54,10 +54,9 @@ Os pontos de input (colha do que existir; o que faltar vira `[REVISAR: negócio]
   categorias + consentimento opt-in dos não-essenciais.
 
 ## Passo 4 — Dados estruturados / JSON-LD (`references/dados-estruturados.md`)
-- Gere os blocos por página: `Organization` (compartilhado, por `@id`) + `WebSite`/`SearchAction` na
+- Gere os blocos por página: `Organization` (compartilhado, por `@id`) + `WebSite` na
   Home; `BreadcrumbList` em toda página com hierarquia; `Service`/`Product` no detalhe;
-  `LocalBusiness` se há endereço; `ContactPage`/`ContactPoint` no Contato; `FAQPage` **só** se a FAQ
-  é visível; `Article` no blog. Todo campo do markup **existe visível** na página.
+  `LocalBusiness` se há endereço; `ContactPage`/`ContactPoint` no Contato; `Article` no blog. Todo campo do markup **existe visível** na página.
 
 ## Passo 5 — Sitemap + robots + hreflang (`references/sitemap-robots.md`)
 - Derive o **sitemap.xml** do inventário (só URLs indexáveis, absolutas, canônicas, 200).

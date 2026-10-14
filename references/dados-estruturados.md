@@ -7,33 +7,24 @@
 > **schematize-web**. Aqui é o **kit institucional aplicado**: quais tipos vão em quais páginas do
 > site institucional e os blocos prontos pra adaptar.
 
-> **O que é daqui e o que NÃO é** (medido em 2026-08-21, para a fronteira não depender de memória):
-> comparando linha a linha com a `schematize-seo`, **1 de 93** linhas substantivas é idêntica (1%);
-> bloco a bloco, 16 de 72 (22%) — não os ~60% que a vistoria estimou. O que sobrepõe é **tema**, não
-> texto. Ainda assim, a fronteira vale escrita, porque é ela que impede a próxima divergência:
+> **Fronteira.** O catálogo de tipos, validação, penalização, rich results mortos (FAQPage, HowTo,
+> SearchAction) e entidade cross-domain são da **`schematize-seo → references/dados-estruturados.md`**
+> — se algo aparecer nos dois, o de lá manda. A injeção do `<script>` é da **schematize-web**. Aqui:
+> **quais tipos vão em quais páginas do institucional** e os blocos prontos.
 >
-> | Assunto | Dono |
-> |---|---|
-> | O catálogo geral de tipos, validação, penalização, entidade cross-domain, âncora do `Organization` | **`schematize-seo`** → `references/dados-estruturados.md` |
-> | Como injetar o `<script type="application/ld+json">` (rota, `metadata`, geração) | **`schematize-web`** |
-> | **Quais tipos vão em quais páginas do site institucional**, e os **blocos prontos** para adaptar | **este arquivo** |
->
-> Se um número (âncora, idioma, política de rich result) aparecer nos dois, **o da `schematize-seo`
-> manda** — aqui é aplicação, não definição.
+> **Não marcamos `FAQPage` nem `SearchAction`:** saíram da galeria de rich results (ver a seo). A FAQ
+> continua existindo como Q&A **visível** em HTML (`<h2>`/`<details>` ou lista) e a busca interna
+> continua existindo; só a marcação sai.
 
 Convenção: **MUST** = regra; **VETADO** = piso. Substitua `EMPRESA`, `https://exemplo.com.br`,
 `[...]` pelos dados reais. **Todo campo do markup precisa existir VISÍVEL na página.**
 
 ---
 
-## Piso (herdado da schematize-seo)
+## Piso
 
-- **VETADO** marcar rich result que a página **não mostra** (FAQ oculto, avaliação inventada,
-  endereço inexistente, preço que não está na tela). É violação de diretriz → **ação manual** que
-  derruba os rich results do domínio inteiro.
-- **MUST** JSON-LD em `<script type="application/ld+json">`; **um bloco por tipo** (ou `@graph`);
-  `@id` absoluto e estável; datas ISO 8601; URLs absolutas; `inLanguage` coerente com `<html lang>`.
-- Reuse a **mesma** `Organization` por `@id` em todo o site (referenciada por `publisher`/`provider`).
+- **VETADO** marcar o que a página **não mostra** (avaliação inventada, endereço inexistente, preço fora da tela) — ação manual; detalhes na `schematize-seo`.
+- **MUST** JSON-LD em `<script type="application/ld+json">`, `@id` absoluto e estável, datas ISO 8601, URLs absolutas; reuse a **mesma** `Organization` por `@id`.
 
 ---
 
@@ -42,14 +33,14 @@ Convenção: **MUST** = regra; **VETADO** = piso. Substitua `EMPRESA`, `https://
 | Página | JSON-LD |
 |---|---|
 | Todo o site (compartilhado) | `Organization` (referenciado por `@id`) |
-| Home | `WebSite` (+ `SearchAction` se há busca) + `Organization` |
+| Home | `WebSite` + `Organization` |
 | Sobre | `Organization` / `AboutPage` |
 | Serviços (índice) | `BreadcrumbList` + `ItemList` |
 | Serviço (detalhe) | `Service` (ou `Product` + `Offer`) + `BreadcrumbList` |
 | Legal (índice + subpáginas) | `BreadcrumbList` |
 | Contato | `ContactPage` + `ContactPoint` (no `Organization`) |
 | Localização / Onde estamos | `LocalBusiness` (se endereço físico) |
-| FAQ | `FAQPage` (só se visível) |
+| FAQ | `BreadcrumbList` (Q&A visível em HTML, sem marcação de FAQ) |
 | Blog (índice) | `Blog` |
 | Post | `Article` / `BlogPosting` |
 | Vaga | `JobPosting` |
@@ -90,7 +81,7 @@ Identidade da empresa. Uma vez, reusada por `@id` em todo o site. Inclui o `Cont
 
 ---
 
-## WebSite (+ SearchAction) — Home
+## WebSite — Home
 
 ```json
 {
@@ -100,17 +91,11 @@ Identidade da empresa. Uma vez, reusada por `@id` em todo o site. Inclui o `Cont
   "url": "https://exemplo.com.br",
   "name": "EMPRESA",
   "inLanguage": "pt-BR",
-  "publisher": { "@id": "https://exemplo.com.br/#org" },
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://exemplo.com.br/busca?q={query}",
-    "query-input": "required name=query"
-  }
+  "publisher": { "@id": "https://exemplo.com.br/#org" }
 }
 ```
 
-**MUST** — só declare `SearchAction` se a busca interna existe e funciona (senão, remova o
-`potentialAction`).
+**VETADO** — `potentialAction`/`SearchAction`: rich result morto (ver `schematize-seo`). A busca interna existe sem marcação.
 
 ---
 
@@ -237,25 +222,6 @@ O `ContactPoint` detalhado vive no `Organization` (acima). Não duplicar telefon
 
 ---
 
-## FAQPage — FAQ (só se visível)
-
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [{
-    "@type": "Question",
-    "name": "[Pergunta exibida na página]",
-    "acceptedAnswer": { "@type": "Answer", "text": "[Resposta exibida na página]" }
-  }]
-}
-```
-
-**VETADO** (piso) — `FAQPage` só com perguntas/respostas **visíveis** na tela. FAQ oculto/accordion
-que não abre/perguntas não mostradas → ação manual.
-
----
-
 ## Article / BlogPosting — Post
 
 ```json
@@ -318,16 +284,9 @@ vários `<script>`. Não misture tipos soltos no mesmo objeto.
 
 ---
 
-## Validação (obrigatória antes de publicar)
+## Validação
 
-| Ferramenta | Para quê |
-|---|---|
-| **Rich Results Test** (Google) | elegibilidade a rich result |
-| **Schema Markup Validator** (schema.org) | sintaxe/vocabulário |
-| **Search Console → Ações manuais** | monitorar penalização em produção |
-
-Sem erro no validador **e** o campo existe visível na página → passou. A disciplina completa (por que
-validar, penalizações, multi-domínio/entidade única cross-domain) é da `schematize-seo`.
+Obrigatória antes de publicar (Rich Results Test, Schema Markup Validator, Ações manuais no Search Console): método e penalizações em `schematize-seo → references/dados-estruturados.md`.
 
 ---
 
@@ -336,9 +295,9 @@ validar, penalizações, multi-domínio/entidade única cross-domain) é da `sch
 - [ ] O tipo **certo** para a página está marcado (mapa acima).
 - [ ] `Organization` única, reusada por `@id`; `ContactPoint` sem telefone divergente.
 - [ ] `BreadcrumbList` em toda página com hierarquia, espelhando o breadcrumb **visível**.
-- [ ] `WebSite`/`SearchAction` só com busca real; `LocalBusiness` só com endereço real (NAP consistente).
+- [ ] **Sem** `FAQPage`/`HowTo`/`SearchAction`; `LocalBusiness` só com endereço real (NAP consistente).
 - [ ] `Service`/`Product` no detalhe; `Offer`/preço só se visível; **sem** avaliação inventada.
-- [ ] `FAQPage` só com FAQ visível; `Article` com autor real e data verdadeira.
+- [ ] `Article` com autor real e data verdadeira.
 - [ ] `@id` absolutos, datas ISO 8601, URLs absolutas, `inLanguage` = `<html lang>`.
 - [ ] Passou no Rich Results Test e no Schema Validator, sem erro.
 - [ ] Injeção do `<script>` no front delegada à `schematize-web`.

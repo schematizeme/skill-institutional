@@ -48,7 +48,7 @@ JSON-LD do seu tipo (ver `dados-estruturados.md`).
 
 | Página | URL sugerida | Papel | JSON-LD | Conteúdo (ver `conteudo-paginas.md`) |
 |---|---|---|---|---|
-| **Home** | `/` | porta de entrada, resumo do valor, caminhos pros hubs | `WebSite` (+`SearchAction` se houver busca) + `Organization` | hero, prova, serviços em destaque, CTA |
+| **Home** | `/` | porta de entrada, resumo do valor, caminhos pros hubs | `WebSite` + `Organization` | hero, prova, serviços em destaque, CTA |
 | **Quem somos / Sobre** | `/sobre` | identidade, história, missão, time | `Organization` / `AboutPage` | história, missão/valores, time, números |
 | **Serviços/Produtos (índice)** | `/servicos` | hub que lista todos os serviços/produtos | `BreadcrumbList` + `ItemList` | grade de serviços, cada um linkando o detalhe |
 | **Serviço/Produto (detalhe)** | `/servicos/[slug]` | 1 página por serviço/produto | `Service` (ou `Product`) + `BreadcrumbList` | o que é, para quem, como funciona, CTA, FAQ do serviço |
@@ -79,7 +79,7 @@ JSON-LD do seu tipo (ver `dados-estruturados.md`).
 
 | Página | URL sugerida | Quando | JSON-LD |
 |---|---|---|---|
-| **FAQ / Perguntas frequentes** | `/faq` | quando há dúvidas recorrentes (quase sempre) | `FAQPage` (só se visível) + `BreadcrumbList` |
+| **FAQ / Perguntas frequentes** | `/faq` | quando há dúvidas recorrentes (quase sempre) | `BreadcrumbList` (Q&A visível em HTML) |
 | **Localização / Onde estamos** | `/onde-estamos` | quando há **endereço físico** / atendimento presencial | `LocalBusiness` + `BreadcrumbList` |
 | **Blog / Notícias (índice)** | `/blog` ou `/noticias` | quando produz conteúdo editorial (forte pra SEO/AIO) | `Blog` + `BreadcrumbList` |
 | **Post do blog (detalhe)** | `/blog/[slug]` | 1 por artigo | `Article`/`BlogPosting` + `BreadcrumbList` |

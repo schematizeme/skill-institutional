@@ -4,6 +4,17 @@ Todas as mudanças relevantes deste pacote, no formato [Keep a Changelog](https:
 com versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
 
+## [0.4.0] — 2026-10-14
+Saneamento: o institucional deixa de contradizer a `schematize-seo` (fonte canônica) e de repetir o que ela já cobre.
+
+### Corrigido
+- **Sem `FAQPage`/`HowTo`/`SearchAction`.** `dados-estruturados.md`, `conteudo-paginas.md`, `arquitetura-informacao.md`, `SKILL.md`, README, `assets/CLAUDE.md` e `/institutional-scaffold` ensinavam JSON-LD de FAQPage e WebSite+SearchAction, rich results que a seo já declara mortos. A marcação saiu; a FAQ continua como Q&A visível em HTML. Aponta para `schematize-seo → references/dados-estruturados.md`.
+- **`scripts/go-live.mjs` agora BARRA** FAQPage/HowTo/SearchAction no JSON-LD (4 casos novos em `go-live.test.sh`, 3 vermelhos + 1 verde).
+
+### Alterado
+- **Fronteira com a seo:** `sitemap-robots.md` (206 -> 54 linhas) fica só no específico (sitemap sai do inventário, o que vira `noindex`, scaffold) com ponteiros para `schematize-seo → references/tecnico.md`; `dados-estruturados.md` perde as seções de validação e piso duplicadas. Referência sem prefixo corrigida.
+- Description reescrita em `>-`, <= 350 caracteres.
+
 ## [0.3.0] — 2026-08-21
 
 ### Corrigido

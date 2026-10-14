@@ -32,7 +32,7 @@ a engenharia de frontend (delega ao **`schematize-web`**) nem a estratégia de S
    `rel=canonical` para si mesma; o que não deve indexar (obrigado/busca/privado) é `noindex` de
    propósito. O site institucional **nasce rastreável**.
 5. **JSON-LD reflete o conteúdo VISÍVEL.** O tipo certo por página (Organization/WebSite/
-   BreadcrumbList/Service/Product/LocalBusiness/FAQPage/Article); **nunca** marcar rich result
+   BreadcrumbList/Service/Product/LocalBusiness/Article (sem FAQPage/HowTo/SearchAction)); **nunca** marcar rich result
    ausente (FAQ oculto, avaliação inventada, endereço/preço que não estão na tela).
 6. **Estrutura ≠ engenharia ≠ SEO — delegue.** Implementação no front (Next/Astro, RSC, a11y AA,
    Core Web Vitals, build, i18n em runtime, injeção do JSON-LD, `app/sitemap.ts`) → **`schematize-web`**.

@@ -2,7 +2,8 @@
 name: schematize-institutional
 metadata:
   version: 0.3.0
-description: Site institucional da casa — o inventário de páginas que um site de empresa precisa ter, o conteúdo mínimo de cada uma, e o piso legal/LGPD. Cobre a arquitetura de páginas (home, sobre, produtos/serviços, casos, preços, blog, contato, carreiras, imprensa, status), o que cada página tem de provar (proposta clara, prova social honesta, CTA único, dados de contato reais), as páginas LEGAIS obrigatórias (termos de uso e de serviço, política de privacidade LGPD, cookies, devolução/frete/estorno quando há venda), o encarregado/DPO e os direitos do titular, e o piso de acessibilidade e SEO de cada template. Use SEMPRE que for planejar, criar, revisar ou auditar um site institucional, uma landing de empresa, uma página legal ou o inventário de páginas de um domínio — mesmo sem citar "institucional". AVISO: o conteúdo legal aqui é SCAFFOLD, não texto jurídico válido — o item de revisão por advogado é humano e não se marca sozinho. Engenharia de front: schematize-web; rankeamento: schematize-seo.
+description: >-
+  Site institucional da casa: inventário de páginas, conteúdo mínimo de cada uma e piso legal/LGPD (termos, privacidade, cookies, devolução/frete/estorno, DPO). Use ao planejar, criar, revisar ou auditar site institucional, landing de empresa, página legal ou inventário de um domínio. Conteúdo legal é SCAFFOLD, revisão por advogado é humana.
 ---
 
 # Construção de Sites Institucionais da Casa (schematize-institutional)
@@ -57,7 +58,7 @@ Os comandos ficam em `assets/commands/` e são instalados em `.claude/commands/`
    é aconselhamento jurídico**, o texto final é **revisado por advogado** antes de publicar.
 3. **Marque os dados estruturados** por tipo de página (`references/dados-estruturados.md`):
    Organization + WebSite no site, BreadcrumbList em toda página com hierarquia, Service/Product no
-   detalhe de serviço, FAQPage na FAQ (só se visível), LocalBusiness se houver endereço,
+   detalhe de serviço, LocalBusiness se houver endereço,
    Article/BlogPosting no blog. O JSON-LD reflete o conteúdo **visível**.
 4. **Gere o sitemap/robots** a partir do inventário (`references/sitemap-robots.md`): toda URL
    pública no `sitemap.xml`, `robots.txt` apontando o sitemap, canonical **self** por página,
@@ -75,7 +76,7 @@ Mapa de references — leia o que casa com a tarefa:
 | **Arquitetura de informação / inventário de páginas**: as páginas baseline (Home, Sobre, Serviços índice+detalhe, Legal índice+7 subpáginas, Contato) e as recomendadas/opcionais (FAQ, Blog, Carreiras, Localização, Depoimentos, Parceiros, Imprensa, Acessibilidade, Mapa do site), hierarquia de URL, navegação/menu/rodapé, baseline vs opcional | `references/arquitetura-informacao.md` |
 | **Templates/checklists de conteúdo** por página: o que cada página precisa ter (Home, Sobre, Serviço índice/detalhe, Contato, FAQ, Blog, Carreiras, Localização…) | `references/conteudo-paginas.md` |
 | **Páginas legais como SCAFFOLD** (NÃO é aconselhamento jurídico): estrutura + placeholders + pontos obrigatórios de cada uma das 7 (Termos de uso, Termos de serviço, Privacidade, Cookies, Devolução, Frete, Estorno/Reembolso), com a base LGPD na privacidade/cookies | `references/paginas-legais.md` |
-| **Dados estruturados (schema.org/JSON-LD) por tipo de página**: Organization + WebSite (SearchAction), BreadcrumbList, LocalBusiness, Service/Product, FAQPage, ContactPoint, Article/BlogPosting — blocos de referência prontos | `references/dados-estruturados.md` |
+| **Dados estruturados (schema.org/JSON-LD) por tipo de página**: Organization + WebSite, BreadcrumbList, LocalBusiness, Service/Product, ContactPoint, Article/BlogPosting — blocos de referência prontos | `references/dados-estruturados.md` |
 | **Sitemap.xml + robots.txt + hreflang** gerados a partir do inventário, canonical self, o essencial pra nascer indexável (o SEO fino remete à schematize-seo) | `references/sitemap-robots.md` |
 
 ## Pisos inegociáveis (vetam o atalho)
@@ -105,7 +106,7 @@ Independente do reference, estes limites nunca são cruzados:
    é `noindex` de propósito. A disciplina fina é da `schematize-seo`, mas o resultado é **exigido**
    aqui: o site institucional **nasce indexável**.
 5. **JSON-LD reflete o conteúdo VISÍVEL.** Cada página com tipo aplicável carrega o JSON-LD certo
-   (Organization/WebSite/BreadcrumbList/Service/Product/FAQPage/LocalBusiness/Article), e **nunca**
+   (Organization/WebSite/BreadcrumbList/Service/Product/LocalBusiness/Article; sem FAQPage/HowTo/SearchAction — `schematize-seo → references/dados-estruturados.md`), e **nunca**
    marca rich result que a página não mostra (FAQ oculto, avaliação inventada, endereço que não
    existe). Marcar o que não está na tela vira **ação manual** e derruba o domínio (ver
    `dados-estruturados.md` e a `schematize-seo`).

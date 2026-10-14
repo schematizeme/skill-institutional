@@ -27,7 +27,7 @@ depoimento, prêmio ou dado que não foi fornecido.
 - [ ] Proposta de valor clara no hero (não "bem-vindo ao nosso site").
 - [ ] Todo número/logo/depoimento é **real** (`[REVISAR: negócio]` se não fornecido).
 - [ ] Links pros hubs (Sobre, Serviços, Contato) presentes.
-- [ ] `WebSite` (+`SearchAction` se houver busca) e `Organization` no JSON-LD.
+- [ ] `WebSite` e `Organization` no JSON-LD (sem `SearchAction`; ver `schematize-seo → references/dados-estruturados.md`).
 - [ ] Um H1 único; CTA de conversão acima da dobra.
 
 ---
@@ -73,7 +73,7 @@ depoimento, prêmio ou dado que não foi fornecido.
 3. **Como funciona**: etapas/entregáveis.
 4. **Benefícios / diferenciais**.
 5. **Prova**: case ou depoimento ligado a este serviço (se houver).
-6. **FAQ do serviço** (opcional; se visível, marca `FAQPage`).
+6. **FAQ do serviço** (opcional; Q&A visível em HTML, sem marcação `FAQPage`).
 7. **CTA**: contratar/orçamento.
 8. **Preço** (se aplicável e público) → habilita `Offer` no JSON-LD.
 
@@ -109,7 +109,7 @@ depoimento, prêmio ou dado que não foi fornecido.
 
 **Checklist**
 - [ ] Perguntas reais dos clientes (não inventadas pra encher).
-- [ ] `FAQPage` JSON-LD **só** com as perguntas/respostas exibidas (piso: nunca marcar FAQ oculto).
+- [ ] Perguntas/respostas **visíveis** em HTML; **sem** JSON-LD `FAQPage` (rich result morto; ver `schematize-seo → references/dados-estruturados.md`).
 - [ ] Respostas curtas e citáveis (bom pra AIO — ver `schematize-seo`).
 
 ---

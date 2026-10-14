@@ -37,6 +37,8 @@ def pagina(caminho, c):
         partes.append('<link rel="canonical" href="%s">' % canon)
     if c.get('noindex') == caminho:
         partes.append('<meta name="robots" content="noindex, nofollow">')
+    if c.get('ld') == caminho:
+        partes.append('<script type="application/ld+json">{"@context":"https://schema.org","@type":"%s"}</script>' % c.get('ld_tipo', 'Organization'))
     partes.append('</head><body>')
     if c.get('sem_h1') != caminho: partes.append('<h1>%s</h1>' % caminho)
     partes.append('<p>conteudo</p><a href="/">home</a></body></html>')
@@ -118,6 +120,12 @@ checa "canonical para outro host reprova" 1 "canonical cruzado" '{"canonical_out
 checa "titulo duplicado reprova" 1 "canibalizacao dentro do proprio site" '{"titulo_duplicado": true}'
 checa "sem <title> reprova" 1 "sem <title>" '{"sem_titulo": "/legal"}'
 checa "sem <h1> reprova" 1 "sem <h1>" '{"sem_h1": "/servicos"}'
+
+echo "== rich results mortos =="
+checa "FAQPage no JSON-LD reprova" 1 "FAQPage" '{"ld": "/contato", "ld_tipo": "FAQPage"}'
+checa "HowTo no JSON-LD reprova" 1 "HowTo" '{"ld": "/sobre", "ld_tipo": "HowTo"}'
+checa "SearchAction no JSON-LD reprova" 1 "SearchAction" '{"ld": "/", "ld_tipo": "SearchAction"}'
+checa "Organization no JSON-LD passa" 0 "go-live" '{"ld": "/", "ld_tipo": "Organization"}'
 
 echo "== uso errado =="
 node "$GATE" >/dev/null 2>&1; [ $? = 2 ] && { echo "  ✔ sem argumento -> exit 2"; ok=$((ok+1)); } || { echo "  ✖ sem argumento"; fail=$((fail+1)); }
