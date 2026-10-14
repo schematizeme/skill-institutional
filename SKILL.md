@@ -1,7 +1,7 @@
 ---
 name: schematize-institutional
 metadata:
-  version: 0.4.0
+  version: 0.4.1
 description: >-
   Site institucional: páginas, conteúdo mínimo e piso legal/LGPD (termos, privacidade, cookies, devolução, DPO). Use
   ao planejar ou auditar site institucional ou página legal. Texto legal é SCAFFOLD; revisão jurídica humana.
@@ -28,7 +28,7 @@ faz a estratégia de SEO — ela **delega**:
 Esta skill entrega o **mapa do prédio e a lista do que vai em cada sala**; a **web** constrói as
 salas; a **seo** faz o prédio aparecer no mapa da cidade.
 
-**Versão:** skill `schematize-institutional` v0.4.0. Changelog em `CHANGELOG.md`.
+**Versão:** skill `schematize-institutional` v0.4.1. Changelog em `CHANGELOG.md`.
 
 ## Comandos (Claude Code)
 
