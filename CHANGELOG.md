@@ -4,6 +4,14 @@ Todas as mudanças relevantes deste pacote, no formato [Keep a Changelog](https:
 com versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
 
+## [0.5.0] — 2026-10-14
+Integração com as 8 skills novas (skill-dev, iam, api, payments, postgres, incident, analytics, git) e saneamento pelo gate novo.
+
+### Alterado
+- Blocos herdados `engineering/precedencia:dominio` e `engineering/orquestracao:curto` (SKILL.md e assets/CLAUDE.md), exigidos pelo gate da `schematize-skill-dev`.
+- Description reduzida a ≤190 caracteres para caber no orçamento do catálogo (45 skills).
+- Ponteiros: `schematize-payments` (mecanismo de devolução/estorno) e `schematize-analytics` (consentimento da política de cookies) em `references/paginas-legais.md` e na relação com as skills.
+
 ## [0.4.1] — 2026-10-14
 Reduz a description para o orçamento de listagem.
 

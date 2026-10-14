@@ -125,7 +125,9 @@ O **contrato** do serviço/produto: o que é entregue, obrigações das partes, 
 **Regra de consentimento (piso):** o site **não dispara** cookies não-essenciais (analytics,
 marketing) **antes** do aceite. Banner com opção real de **recusar** tão fácil quanto **aceitar**;
 essenciais podem rodar sem consentimento. A **implementação** do banner/consent-mode (bloqueio de
-scripts até consentir) delega à `schematize-web`; **aqui** se define a **política e as categorias**.
+scripts até consentir) delega à `schematize-web`; **aqui** se define a **política e as categorias**. A base legal por
+finalidade, o opt-in, o modo sem cookie e a revogação do analytics são de
+`schematize-analytics → references/consentimento-lgpd.md`; a política de cookies descreve o que ele decidiu.
 
 ---
 
@@ -139,7 +141,7 @@ dias em compra fora do estabelecimento). `[REVISAR: advogado]`
 2. Direito de arrependimento (compra online). `[REVISAR: advogado]`
 3. Como solicitar (canal, passo a passo).
 4. Quem paga o frete de devolução.
-5. Prazo e forma de reembolso/troca (liga com Estorno).
+5. Prazo e forma de reembolso/troca (liga com Estorno; o estorno em si é de `schematize-payments → references/estado-e-ledger.md`).
 6. Exceções (produtos personalizados, perecíveis, digitais).
 
 ---
@@ -164,6 +166,10 @@ dias em compra fora do estabelecimento). `[REVISAR: advogado]`
 3. Reembolso total vs parcial e critérios.
 4. Como solicitar e acompanhar.
 5. Vínculo com Devolução e Termos de Serviço.
+
+> O **texto** da política é daqui; o **mecanismo** do estorno (lançamento inverso no ledger, estorno de
+> PIX/cartão/boleto, chargeback) é de `schematize-payments → references/estado-e-ledger.md` e
+> `references/cartao-pci.md`. Prazo prometido na política tem de ser o que o PSP e o ledger cumprem.
 
 ---
 

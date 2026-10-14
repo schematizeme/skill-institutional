@@ -3,8 +3,7 @@ name: schematize-institutional
 metadata:
   version: 0.4.1
 description: >-
-  Site institucional: páginas, conteúdo mínimo e piso legal/LGPD (termos, privacidade, cookies, devolução, DPO). Use
-  ao planejar ou auditar site institucional ou página legal. Texto legal é SCAFFOLD; revisão jurídica humana.
+  Site institucional: páginas, conteúdo mínimo e piso legal/LGPD (termos, privacidade, cookies, devolução). Use ao planejar ou auditar site ou página legal. Texto legal é SCAFFOLD.
 ---
 
 # Construção de Sites Institucionais da Casa (schematize-institutional)
@@ -123,6 +122,34 @@ Independente do reference, estes limites nunca são cruzados:
    sitemap/robots gerados vão para o `<projeto>_archive/` (o rastro que a auditoria consome). Sem
    archive, a entrega não aconteceu.
 
+## Precedência e herança (leia antes de divergir)
+
+<!-- herdado:engineering/precedencia:dominio intro="Esta skill é o recorte **Site institucional e piso legal/LGPD** da `schematize-engineering`: **disciplina de domínio**, não linguagem de backend." cmd="institutional" -->Esta skill é o recorte **Site institucional e piso legal/LGPD** da `schematize-engineering`: **disciplina de domínio**, não linguagem de backend.
+
+1. **Onde esta skill divergir da base, a BASE MANDA.** Aqui mora a especialização do domínio ou da
+   ferramenta — o como, o padrão, o gate. Divergência de *piso* é defeito desta skill, não variante local.
+2. **O que não está repetido aqui é HERDADO, não dispensado.** Esta skill herda os pisos da base e
+   os comandos dela cobrem o **domínio**, não o piso geral. Valem integralmente, sem cópia local:
+   - **§28 Archive** — `<projeto>/<projeto>_archive/` é **repositório git próprio, PRIVADO e
+     obrigatório**, criticidade 0 (`schematize-archive`).
+   - **§35 Definition of Done** e a lista de anti-padrões (citada por **título**, nunca por número).
+   - **§39 Índice/MAPA** — enumeração exaustiva (uma entrada por unidade chamável, `M == N`) e grafo
+     com arestas em ASCII (`A -> B`), nunca a seta unicode.
+   - **IAM** (`schematize-engineering` → `references/iam.md`): identidade ≠ email, ≥2 fatores, ReBAC
+     multi-tenant, argon2id-only para senha nova, sessão longa e logout irreversível.
+   - **Efeito externo** nunca sai de não-produção (`schematize-engineering` →
+     `references/efeitos-externos.md`).
+   - **Orquestração** (`schematize-engineering` → `references/orquestracao.md` §9): o principal não
+     desenvolve (é Claude Opus); executor mais barato que resolve — `haiku`/`sonnet` → Codex Terra → Cursor → `opus` só após falha; visual direto ao Codex; imagem nunca pelo Claude: detecta Codex/Gemini e pergunta ao usuário qual usar (Codex é a sugestão, não automática), nunca API paga.
+3. **QA, ops, IAM e índice não têm comando próprio aqui:** vêm da base `/eng-*`. Para trabalho
+   contínuo use `/eng-overdev`; para planejar `/eng-plan`; para varrer a base `/eng-scan`; para
+   revisão geral `/eng-review` (e `/eng-ops`, `/eng-iam`, `/eng-index`). Os comandos
+   `/institutional-*` cobrem o domínio desta skill; o piso geral é o da base.<!-- /herdado -->
+
+## Orquestração
+
+<!-- herdado:engineering/orquestracao:curto -->**Orquestrador não desenvolve; subagent barato executa.** O agent principal só planeja, despacha e revisa; ação onerosa vira micro-tasks para o executor mais barato que resolve: `haiku` (mecânico) / `sonnet` (código; falhou → mesmo subagent corrige, até 2 rodadas) → Codex `gpt-5.6-terra` → Cursor → subagent `opus` (motivo) → `park`; **visual vai direto ao Codex**; **imagem nunca pelo Claude: detectar Codex/Gemini e perguntar ao usuário qual usar (Codex é a sugestão), nunca API de imagem paga**; papéis em `agentes.toml`. No overdev, cada item do checklist vai a um subagent e o principal revisa antes do `- [x]`. **Sem frota ociosa:** idle com pendência volta ao trabalho; dependente de outro agent → mata e enfileira com gatilho; terminou → mata (§9.6). Detalhe: `schematize-engineering` → `references/orquestracao.md` §9.<!-- /herdado -->
+
 ## Relação com as outras skills
 
 - **schematize-web** — a **engenharia de frontend**. Esta skill diz *quais páginas, com qual
@@ -135,6 +162,10 @@ Independente do reference, estes limites nunca são cruzados:
   canônica de *como rankear* — keywords/intenção, on-page fino, multi-domínio sem canibalização
   (net/org/me/com.br), hreflang recíproco em escala, AIO/LLMO/GEO, autoridade e medição. O detalhe
   fino de SEO **sempre** remete a ela.
+- **schematize-payments** — o **mecanismo** por trás de devolução/estorno (ledger, estorno de PIX/cartão/boleto,
+  chargeback: `schematize-payments → references/estado-e-ledger.md`); aqui só o texto da política.
+- **schematize-analytics** — consentimento e modo sem cookie do analytics
+  (`schematize-analytics → references/consentimento-lgpd.md`); a política de cookies daqui descreve o que ele decidiu.
 - **schematize-scaffold** — o **projeto novo da casa** (piso do dia 0: repos por contexto, IAM
   app-separada, ops, CI gated). O site institucional em si é um `<projeto>_front` (ou site próprio)
   que herda esse piso; esta skill preenche o **conteúdo e a estrutura** desse front.
