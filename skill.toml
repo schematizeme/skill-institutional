@@ -3,7 +3,7 @@ name = "schematize-institutional"
 tag = "Site institucional · IA/páginas/JSON-LD/sitemap"
 status = "beta"
 order = 20
-current_version = "0.4.1"
+current_version = "0.5.0"
 href = "/institutional"
 
 [descriptions]
