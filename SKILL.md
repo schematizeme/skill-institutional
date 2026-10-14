@@ -3,7 +3,9 @@ name: schematize-institutional
 metadata:
   version: 0.3.0
 description: >-
-  Site institucional da casa: inventário de páginas, conteúdo mínimo de cada uma e piso legal/LGPD (termos, privacidade, cookies, devolução/frete/estorno, DPO). Use ao planejar, criar, revisar ou auditar site institucional, landing de empresa, página legal ou inventário de um domínio. Conteúdo legal é SCAFFOLD, revisão por advogado é humana.
+  Site institucional: inventário de páginas, conteúdo mínimo de cada uma e piso legal/LGPD (termos, privacidade,
+  cookies, devolução, DPO). Use ao planejar, criar ou auditar site institucional ou página legal. Conteúdo legal é
+  SCAFFOLD; revisão jurídica é humana.
 ---
 
 # Construção de Sites Institucionais da Casa (schematize-institutional)

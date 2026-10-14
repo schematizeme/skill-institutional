@@ -14,6 +14,7 @@ Saneamento: o institucional deixa de contradizer a `schematize-seo` (fonte canô
 ### Alterado
 - **Fronteira com a seo:** `sitemap-robots.md` (206 -> 54 linhas) fica só no específico (sitemap sai do inventário, o que vira `noindex`, scaffold) com ponteiros para `schematize-seo → references/tecnico.md`; `dados-estruturados.md` perde as seções de validação e piso duplicadas. Referência sem prefixo corrigida.
 - Description reescrita em `>-`, <= 350 caracteres.
+- **Description** reduzida (~270 chars) para caber no orçamento de listagem (soma das 31 skills ≤ 8500; o Claude Code corta a listagem acima disso).
 
 ## [0.3.0] — 2026-08-21
 
